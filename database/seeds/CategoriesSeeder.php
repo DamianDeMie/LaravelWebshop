@@ -40,6 +40,10 @@ class CategoriesSeeder extends Seeder
             'image' => 'images/categories/st.jpg'
         ]);
         DB::table('categories')->insert([
+            'name' => 'Geluid',
+            'image' => 'images/categories/zu.jpg'
+        ]);
+        DB::table('categories')->insert([
             'name' => 'Accessories',
             'image' => 'images/categories/ca.jpg'
         ]);

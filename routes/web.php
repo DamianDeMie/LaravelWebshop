@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Categories;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = Categories::all();
+    return view('welcome')->with([
+        'categories' => $categories,
+    ]);
 });
 
 Auth::routes();

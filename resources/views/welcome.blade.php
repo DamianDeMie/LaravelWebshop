@@ -42,112 +42,23 @@
     <div class='container mt-3'>
         <h2 class="display-4 text-center">Bekijk ons assortiment</h2>
         <div class="row">
-            <div class="col-sm-4">
+        @foreach ($categories as $category)
+            <div class="col-sm-4" href="">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="images/guitar.png" class="img-fluid" alt="">
+                        <img src="{{$category->image}}" class="img-fluid" alt="{{$category->name}}">
                     </div>
                     <div class="col-md-6 my-auto">
-                        <p>Gitaren</p>
+                        <p>{{$category->name}} </p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/bass.png" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Basgitaren</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/mic.jpg" class="img-fluid" alt="">
-
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Microfoons</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/drumkit.jpg" class="img-fluid" alt="">
-
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Drums</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/ta.jpg" class="img-fluid" alt="">
-
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Toetsinstrumenten</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/sw.jpg" class="img-fluid" alt="">
-
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Software</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-3 pb-3">
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/st.jpg" class="img-fluid" alt="">
-
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Studio-toebehoren</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/zu.jpg" class="img-fluid" alt="">
-
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Geluid</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/ca.jpg" class="img-fluid" alt="">
-
-                    </div>
-                    <div class="col-md-6 my-auto">
-                        <p>Accessories</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <footer id="footer" role="contentinfo">
         <div class="wrap">
-            <p>© 2019 Damian de Mie</p>
+            <p>© 2020 Damian de Mie</p>
         </div>
     </footer>
 @endsection
