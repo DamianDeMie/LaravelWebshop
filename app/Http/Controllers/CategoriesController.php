@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Products;
 use App\Categories;
 
+use DB;
+
 class CategoriesController extends Controller
 {
-    public function getProducts()
+    public function getProducts($id)
     {
-        $products = Products::all();
+        $products = DB::table('products')->get()->where('category_id', $id);
         $categories = Categories::all();
         return view('categories.index', ['products' => $products, 'categories' => $categories]);
     }
