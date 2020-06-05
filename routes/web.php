@@ -22,7 +22,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/products', 'CategoriesController@GetProducts');
+Route::get('/category/{id}', 'CategoriesController@GetProducts');
+Route::get('/product/{id}', 'ProductsController@showProduct');
 
 Auth::routes();
 
