@@ -43,13 +43,13 @@
         <h2 class="display-4 text-center">Bekijk ons assortiment</h2>
         <div class="row">
         @foreach ($categories as $category)
-            <div class="col-sm-4" href="">
+            <div class="col-sm-4"">
                 <div class="row">
                     <div class="col-md-6">
                         <img src="{{$category->image}}" class="img-fluid" alt="{{$category->name}}">
                     </div>
                     <div class="col-md-6 my-auto">
-                        <p>{{$category->name}} </p>
+                        <a href='/category/{{$category->id}}' class='stretched-link'>{{$category->name}} </a>
                     </div>
                 </div>
             </div>

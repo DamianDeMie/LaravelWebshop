@@ -14,7 +14,7 @@
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
                 <ul class="list-group category_block">
                     @foreach ($categories as $category)
-                    <li class="list-group-item"><a href="category/{{$category->name}}">{{$category->name}}</a></li>
+                    <li class="list-group-item"><a href="../category/{{$category->id}}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -26,7 +26,7 @@
                     <div class="card mb-2">
                         <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
                         <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">{{$product->product_name}}</a></h4>
+                            <h4 class="card-title"><a href="/product/{{$product->id}}" title="View Product">{{$product->product_name}}</a></h4>
                             {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
                             <div class="row">
                                 <div class="col-5">

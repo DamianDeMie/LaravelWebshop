@@ -27,7 +27,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <a class="navbar-brand" href="/">
-                    <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <img src="../images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Pararith Music Store
                 </a>
             </ul>
