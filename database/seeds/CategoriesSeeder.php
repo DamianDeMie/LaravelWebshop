@@ -11,41 +11,58 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+        $category = new \App\Categories([
             'name' => 'Gitaren',
             'image' => 'images/categories/guitar.png'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Basgitaren',
             'image' => 'images/categories/bass.png'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Microfoons',
             'image' => 'images/categories/mic.jpg'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Drums',
             'image' => 'images/categories/drumkit.jpg'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Toetsinstrumenten',
             'image' => 'images/categories/ta.jpg'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Software',
             'image' => 'images/categories/sw.jpg'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Studio-toebehoren',
             'image' => 'images/categories/st.jpg'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Geluid',
             'image' => 'images/categories/zu.jpg'
         ]);
-        DB::table('categories')->insert([
+        $category->save();
+
+        $category = new \App\Categories([
             'name' => 'Accessories',
             'image' => 'images/categories/ca.jpg'
         ]);
+        $category->save();
     }
 }

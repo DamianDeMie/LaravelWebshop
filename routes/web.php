@@ -22,6 +22,8 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/products', 'CategoriesController@GetProducts');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
