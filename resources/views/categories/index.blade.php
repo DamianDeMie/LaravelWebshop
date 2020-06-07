@@ -33,7 +33,7 @@
                                     <p class="">&euro; {{$product->product_price}}</p>
                                 </div>
                                 <div class="col-8">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                    <a href="/add-to-cart/{{$product->id}}" class="btn btn-success btn-block">Add to cart</a>
                                 </div>
                             </div>
                         </div>
