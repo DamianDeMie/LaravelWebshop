@@ -28,4 +28,14 @@ class ProductsController extends Controller
         $request->session()->put('cart', $cart);
         return redirect()->back()->with('message', "Uw product '{{$product->product_name}}' is toegevoegd aan uw winkelwagen!");
     }
+
+    public function getShoppingCart()
+    {
+        if (!Session::has('cart')) {
+            return view('cart.contents', ['products' => null]);
+        }
+        $oldCart = Session::Get('cart');
+        $cart = new Cart($oldCart);
+        return view('cart.contents', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
 }
