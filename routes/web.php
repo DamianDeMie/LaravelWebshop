@@ -36,4 +36,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/add-to-cart/{id}', 'ProductsController@AddProductToCart');
     Route::get('/cart', 'ProductsController@getShoppingCart');
+    Route::post('/processOrder', 'OrdersController@processOrder');
+    Route::get('/destroyCart', 'CartController@destroyCart');
 });
