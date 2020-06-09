@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Session;
+
 class Cart
 {
     //When a cart gets created, these properties will be automatically set as a default.
@@ -43,7 +45,39 @@ class Cart
         $storedItem['quantity']++;
         $storedItem['price'] = $item->product_price * $storedItem['quantity'];
         $this->items[$id] = $storedItem;
-        $this->totalQuantity++;
-        $this->totalPrice += $item->product_price;
+    }
+
+    /**
+     * Get total price of every product
+     */
+    public function getTotalPrice()
+    {
+        $totalPrice = 0;
+        foreach ($this->items as $product) {
+            $totalPrice += $product['price'];
+        }
+        return $totalPrice;
+    }
+
+    public function changeQuantity($itemQuantity, $id)
+    {
+        if ($itemQuantity == 0) {
+            $this->deleteItem($id);
+            return;
+        }
+        if ($this->items[$id]['quantity'] == 0) {
+            $this->items[$id]['price'] = $itemQuantity * $this->items[$id]['price'];
+        } else {
+            $this->items[$id]['price'] = $itemQuantity * ($this->items[$id]['price'] / $this->items[$id]['quantity']);
+        }
+        $this->items[$id]['quantity'] = $itemQuantity;
+    }
+
+    public function deleteItem($id)
+    {
+        unset($this->items[$id]);
+        if (empty($this->items)) {
+            Session::forget("cart");
+        }
     }
 }

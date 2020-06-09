@@ -29,9 +29,17 @@
                             <td></td>
                             <td>{{ $product['item']['product_name']}}</td>
                             <td></td>
-                            <td><input class="form-control" type="text" value="{{ $product['quantity'] }}" /></td>
+                            <td>
+                            <form action="/changeItemAmount/{{$product['item']['id']}}" method="POST">
+                    @csrf
+                    <input id="quantityInput" class="quantityInput" name="quantityInput" type="number" min="0" value="{{ $product['quantity'] }}">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </form>
+                            </td>
                             <td class="text-right">€{{ $product['price']}}</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                            <td class="text-right"><a href='/deleteItem/{{$product['item']['id']}}' class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                         </tr>
                     @endforeach
                         <tr>
@@ -40,7 +48,7 @@
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>€{{ $totalPrice }}</strong></td>
+                            <td class="text-right"><strong>€{{Session::get('cart')->getTotalPrice()}}</strong></td>
                         </tr>
                     </tbody>
                 </table>

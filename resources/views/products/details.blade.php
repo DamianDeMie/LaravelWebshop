@@ -34,7 +34,7 @@
                 <div class="card-body">
                 <h3>{{$product->product_name}}</h3>
                     <p class="price">&euro;{{$product->product_price}}</p>
-                    <form method="get" action="cart.html">
+                    <form method="get" action="/add-to-cart/{{$product->id}}">
                         <div class="form-group">
                             <label>Aantal:</label>
                             <div class="input-group mb-3">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="cart.html" class="btn btn-success btn-lg btn-block text-uppercase">
+                        <a href="/add-to-cart/{{$product->id}}" class="btn btn-success btn-lg btn-block text-uppercase">
                             <i class="fa fa-shopping-cart"></i> Add To Cart
                         </a>
                     </form>

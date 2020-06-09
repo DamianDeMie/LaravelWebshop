@@ -38,4 +38,18 @@ class ProductsController extends Controller
         $cart = new Cart($oldCart);
         return view('cart.contents', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
+
+    public function changeItemAmount(Request $request, $id)
+    {
+        $itemQuantity = $request->get('quantityInput');
+        $oldCart = Session::Get('cart')->changeQuantity($itemQuantity, $id);
+        $cart = new Cart($oldCart);
+        return back();
+    }
+
+    public function deleteItem($id)
+    {
+        $oldCart = Session::Get('cart')->deleteItem($id);
+        return back();
+    }
 }

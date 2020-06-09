@@ -35,7 +35,9 @@ Route::get('/home', 'OrdersController@showOrders')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/add-to-cart/{id}', 'ProductsController@AddProductToCart');
+    Route::post('/changeItemAmount/{id}', 'ProductsController@changeItemAmount');
     Route::get('/cart', 'ProductsController@getShoppingCart');
+    Route::get('/deleteItem/{id}', 'ProductsController@deleteItem');
     Route::post('/processOrder', 'OrdersController@processOrder');
     Route::get('/destroyCart', 'CartController@destroyCart');
 });
