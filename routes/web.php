@@ -27,11 +27,11 @@ Route::get('/product/{id}', 'ProductsController@showProduct');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'OrdersController@showOrders')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'OrdersController@showOrders')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/add-to-cart/{id}', 'ProductsController@AddProductToCart');
