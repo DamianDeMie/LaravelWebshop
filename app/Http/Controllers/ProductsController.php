@@ -49,7 +49,7 @@ class ProductsController extends Controller
 
     public function deleteItem($id)
     {
-        $oldCart = Session::Get('cart')->deleteItem($id);
+        Session::Get('cart')->deleteItem($id);
         return back();
     }
 }
