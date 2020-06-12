@@ -16,8 +16,9 @@ class Cart
      *
      * @param [mixed] $oldCart
      */
-    public function __construct($oldCart)
+    public function __construct()
     {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
         if ($oldCart) {
             $this->items = $oldCart->items;
             $this->totalQuantity = $oldCart->totalQuantity;
@@ -45,6 +46,8 @@ class Cart
         $storedItem['quantity']++;
         $storedItem['price'] = $item->product_price * $storedItem['quantity'];
         $this->items[$id] = $storedItem;
+
+        Session::put('cart', $this);
     }
 
     /**
@@ -71,6 +74,8 @@ class Cart
             $this->items[$id]['price'] = $itemQuantity * ($this->items[$id]['price'] / $this->items[$id]['quantity']);
         }
         $this->items[$id]['quantity'] = $itemQuantity;
+
+        Session::put('cart', $this);
     }
 
     public function deleteItem($id)
@@ -78,6 +83,8 @@ class Cart
         unset($this->items[$id]);
         if (empty($this->items)) {
             Session::forget("cart");
+            return;
         }
+        Session::put('cart', $this);
     }
 }

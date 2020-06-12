@@ -48,7 +48,7 @@
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>€{{Session::get('cart')->getTotalPrice()}}</strong></td>
+                            <td class="text-right"><strong>€{{$totalPrice}}</strong></td>
                         </tr>
                     </tbody>
                 </table>
