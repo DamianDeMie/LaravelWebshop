@@ -21,8 +21,8 @@
         </div>
         <div class="col-9">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
                 @foreach ($products as $product)
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="card mb-2">
                         <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
                         <div class="card-body">
@@ -38,10 +38,8 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
                 </div>
-
-
+            @endforeach
     </div>
 </div>
 @endsection
