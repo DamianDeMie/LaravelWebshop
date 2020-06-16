@@ -59,17 +59,13 @@
                 <div class="col-sm-12  col-md-6">
                     <button class="btn btn-block btn-light">Continue Shopping</button>
                 </div>
-                {{-- <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
-                </div> --}}
                 <form method="POST" action="/processOrder">
                 @csrf
                 <input type="hidden" name='user_id' value='{{Auth::user()->id}}'>
                 <input type="hidden" name='user_email' value='{{Auth::user()->email}}'>
                 <input type="hidden" name='order_total' value='{{ $totalPrice }}'>
-                <div class="col-sm-12 col-md-6 text-right">
                     <button type='submit' class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
-                </div>
+
                 </form>
             </div>
         </div>

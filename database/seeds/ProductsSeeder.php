@@ -127,16 +127,5 @@ class ProductsSeeder extends Seeder
             'category_id' => 4,
         ]);
         $product->save();
-
-        //Toetsinstrumenten
-
-        $product = new \App\Products([
-            'product_name' => 'Tama CK48S-MGD Superstar Classic Midnight Gold Sp. 4d shellset',
-            'product_price' => 554.99,
-            'description' => 'Al meer dan veertig jaar komt de naam Superstar voor in het assortiment van Tama. En iedere keer opnieuw weet Tama de serie opnieuw te verbeteren. Dat zie je ook weet terug in de Superstar Classic-serie, waarvan de solide basis wordt gevormd door esdoornhouten ketels (Maple). Deze houtsoort zorgt voor een krachtige, volle klank, zeker in combinatie met de moderne ketelhardware. De CK48S-configuratie bestaat uit een 18x14 inch bassdrum, een 12x8 inch tom, een 14x14 inch floortom en een 14x5 inch snaredrum. Doordat deze set is afgewerkt met een wrap is deze voordeliger dan de sets met een lak-afwerking. Deze variant heeft een Midnight Gold Sparkle-wrap.',
-            'image' => '../images/products/tamadrums.jpeg',
-            'category_id' => 5,
-        ]);
-        $product->save();
     }
 }
