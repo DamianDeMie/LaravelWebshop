@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Products;
-use DB;
 
 class Categories extends Model
 {
@@ -14,4 +13,9 @@ class Categories extends Model
      * @var array
      */
     protected $fillable = ['name', 'image'];
+
+    public function showProducts()
+    {
+        return $this->hasMany('App\Products', 'category_id');
+    }
 }

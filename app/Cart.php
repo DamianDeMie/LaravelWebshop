@@ -7,23 +7,19 @@ use Session;
 class Cart
 {
     //When a cart gets created, these properties will be automatically set as a default.
-    public $items = Null;
-    public $totalQuantity = 0;
-    public $totalPrice = 0;
+    private $items = Null;
 
     /**
      * Constructor that is used when a old Shopping Cart exists, if so adds all the data from the old shopping cart into the new one.
      *
-     * @param [mixed] $oldCart
+     * @param [mixed] $cartItems
      */
     public function __construct()
     {
         //Checks if the session already has a cart or not, if so it gets the data from that old cart so you don't lose anything.
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        if ($oldCart) {
-            $this->items = $oldCart->items;
-            $this->totalQuantity = $oldCart->totalQuantity;
-            $this->totalPrice = $oldCart->totalPrice;
+        $cartItems = Session::has('cart') ? Session::get('cart') : null;
+        if ($cartItems) {
+            $this->items = $cartItems;
         }
     }
 
@@ -52,7 +48,7 @@ class Cart
         //Stores the item that has been added to the StoredItem variable and then puts that in the cart session.
         $this->items[$id] = $storedItem;
 
-        Session::put('cart', $this);
+        Session::put('cart', $this->items);
     }
 
     /**
@@ -94,7 +90,7 @@ class Cart
         $this->items[$id]['quantity'] = $itemQuantity;
 
         //Puts the new quantity in the cart.
-        Session::put('cart', $this);
+        Session::put('cart', $this->items);
     }
 
     /**
@@ -111,7 +107,7 @@ class Cart
             Session::forget("cart");
             return;
         }
-        Session::put('cart', $this);
+        Session::put('cart', $this->items);
     }
 
     /**
@@ -123,5 +119,12 @@ class Cart
     {
         //Forgest the Cart Session.
         Session::forget('cart');
+    }
+
+    public function __get($propertyName)
+    {
+        if (property_exists($this, $propertyName)) {
+            return $this->$propertyName;
+        }
     }
 }
