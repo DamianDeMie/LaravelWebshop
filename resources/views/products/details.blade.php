@@ -35,22 +35,6 @@
                 <h3>{{$product->product_name}}</h3>
                     <p class="price">&euro;{{$product->product_price}}</p>
                     <form method="get" action="/add-to-cart/{{$product->id}}">
-                        <div class="form-group">
-                            <label>Aantal:</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1">
-                                <div class="input-group-append">
-                                    <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                         <a href="/add-to-cart/{{$product->id}}" class="btn btn-success btn-lg btn-block text-uppercase">
                             <i class="fa fa-shopping-cart"></i> Add To Cart
                         </a>
